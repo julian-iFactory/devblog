@@ -9,3 +9,11 @@ BloggerBlogBundle_homepage:
     defaults: { _controller: BloggerBlogBundle:Page:index }
     requirements:
         _method:  GET
+
+# Routing to About Page
+
+BloggerBlogBundle_about:
+    pattern:  /about
+    defaults: { _controller: BloggerBlogBundle:Page:about }
+    requirements:
+        _method:  GET

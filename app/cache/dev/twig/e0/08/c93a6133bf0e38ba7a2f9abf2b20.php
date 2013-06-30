@@ -122,8 +122,14 @@ class __TwigTemplate_e008c93a6133bf0e38ba7a2f9abf2b20 extends Twig_Template
         // line 23
         echo "                        <nav>
                             <ul class=\"navigation\">
-                                <li><a href=\"#\">Home</a></li>
-                                <li><a href=\"#\">About</a></li>
+                                <li><a href=\"";
+        // line 25
+        echo $this->env->getExtension('routing')->getPath("BloggerBlogBundle_homepage");
+        echo "\">Home</a></li>
+                                <li><a href=\"";
+        // line 26
+        echo $this->env->getExtension('routing')->getPath("BloggerBlogBundle_about");
+        echo "\">About</a></li>
                                 <li><a href=\"#\">Contact</a></li>
                             </ul>
                         </nav>
@@ -133,13 +139,17 @@ class __TwigTemplate_e008c93a6133bf0e38ba7a2f9abf2b20 extends Twig_Template
     // line 34
     public function block_blog_title($context, array $blocks = array())
     {
-        echo "<a href=\"#\">symblog</a>";
+        echo "<a href=\"";
+        echo $this->env->getExtension('routing')->getPath("BloggerBlogBundle_homepage");
+        echo "\">symblog</a>";
     }
 
     // line 35
     public function block_blog_tagline($context, array $blocks = array())
     {
-        echo "<a href=\"#\">creating a blog in Symfony2</a>";
+        echo "<a href=\"";
+        echo $this->env->getExtension('routing')->getPath("BloggerBlogBundle_homepage");
+        echo "\">creating a blog in Symfony2</a>";
     }
 
     // line 40
@@ -177,6 +187,6 @@ class __TwigTemplate_e008c93a6133bf0e38ba7a2f9abf2b20 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  164 => 53,  159 => 48,  156 => 47,  151 => 43,  146 => 40,  140 => 35,  134 => 34,  123 => 23,  120 => 22,  114 => 13,  110 => 11,  107 => 10,  101 => 6,  96 => 54,  94 => 53,  89 => 50,  87 => 47,  82 => 44,  80 => 43,  76 => 41,  74 => 40,  66 => 35,  62 => 34,  57 => 31,  55 => 22,  44 => 15,  42 => 10,  35 => 6,  31 => 5,  28 => 1,);
+        return array (  174 => 53,  169 => 48,  166 => 47,  161 => 43,  156 => 40,  148 => 35,  140 => 34,  131 => 26,  127 => 25,  123 => 23,  120 => 22,  114 => 13,  110 => 11,  107 => 10,  101 => 6,  96 => 54,  94 => 53,  89 => 50,  87 => 47,  82 => 44,  80 => 43,  76 => 41,  74 => 40,  66 => 35,  62 => 34,  57 => 31,  55 => 22,  44 => 15,  42 => 10,  35 => 6,  28 => 1,);
     }
 }
