@@ -130,7 +130,10 @@ class __TwigTemplate_e008c93a6133bf0e38ba7a2f9abf2b20 extends Twig_Template
         // line 26
         echo $this->env->getExtension('routing')->getPath("BloggerBlogBundle_about");
         echo "\">About</a></li>
-                                <li><a href=\"#\">Contact</a></li>
+                                <li><a href=\"";
+        // line 27
+        echo $this->env->getExtension('routing')->getPath("BloggerBlogBundle_contact");
+        echo "\">Contact</a></li>
                             </ul>
                         </nav>
                     ";
@@ -166,7 +169,7 @@ class __TwigTemplate_e008c93a6133bf0e38ba7a2f9abf2b20 extends Twig_Template
     public function block_footer($context, array $blocks = array())
     {
         // line 48
-        echo "                    Symfony2 blog tutorial - created by <a href=\"https://github.com/dsyph3r\">dsyph3r</a>
+        echo "                    <a href=\"http://www.pelotonhq.com\">Peloton HQ</a>
                 ";
     }
 
@@ -187,6 +190,6 @@ class __TwigTemplate_e008c93a6133bf0e38ba7a2f9abf2b20 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  174 => 53,  169 => 48,  166 => 47,  161 => 43,  156 => 40,  148 => 35,  140 => 34,  131 => 26,  127 => 25,  123 => 23,  120 => 22,  114 => 13,  110 => 11,  107 => 10,  101 => 6,  96 => 54,  94 => 53,  89 => 50,  87 => 47,  82 => 44,  80 => 43,  76 => 41,  74 => 40,  66 => 35,  62 => 34,  57 => 31,  55 => 22,  44 => 15,  42 => 10,  35 => 6,  28 => 1,);
+        return array (  177 => 53,  172 => 48,  169 => 47,  164 => 43,  159 => 40,  151 => 35,  143 => 34,  135 => 27,  131 => 26,  127 => 25,  123 => 23,  120 => 22,  114 => 13,  110 => 11,  107 => 10,  101 => 6,  96 => 54,  94 => 53,  89 => 50,  87 => 47,  82 => 44,  80 => 43,  76 => 41,  74 => 40,  66 => 35,  62 => 34,  57 => 31,  55 => 22,  44 => 15,  42 => 10,  35 => 6,  28 => 1,);
     }
 }
