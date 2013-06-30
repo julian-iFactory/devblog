@@ -40,6 +40,43 @@ class __TwigTemplate_84f8e6fe1516d8c10fa039201322c70a extends Twig_Template
     </header>
 
     <p>Want to contact symblog?</p>
+
+    <form action=\"";
+        // line 13
+        echo $this->env->getExtension('routing')->getPath("BloggerBlogBundle_contact");
+        echo "\" method=\"post\" ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'enctype');
+;
+        echo " class=\"blogger\">
+        ";
+        // line 14
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'errors');
+        echo "
+
+        ";
+        // line 16
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "name"), 'row');
+        echo "
+        ";
+        // line 17
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "email"), 'row');
+        echo "
+        ";
+        // line 18
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "subject"), 'row');
+        echo "
+        ";
+        // line 19
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "body"), 'row');
+        echo "
+
+        ";
+        // line 21
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'rest');
+        echo "
+
+        <input type=\"submit\" value=\"Submit\" />
+    </form>
 ";
     }
 
@@ -55,6 +92,6 @@ class __TwigTemplate_84f8e6fe1516d8c10fa039201322c70a extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  38 => 7,  35 => 6,  29 => 4,);
+        return array (  75 => 21,  70 => 19,  66 => 18,  62 => 17,  58 => 16,  53 => 14,  46 => 13,  38 => 7,  35 => 6,  29 => 4,);
     }
 }
