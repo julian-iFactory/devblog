@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Blogger\BlogBundle\Entity\Enquiry;
 use Blogger\BlogBundle\Form\EnquiryType;
 
+
 class PageController extends Controller
 {
     public function indexAction()
@@ -29,7 +30,7 @@ class PageController extends Controller
 
 	    $request = $this->getRequest();
 	    if ($request->getMethod() == 'POST') {
-	        $form->bindRequest($request);
+	        $form->bind($request);
 
 	        if ($form->isValid()) {
 	            // Perform some action, such as sending an email
@@ -46,6 +47,5 @@ class PageController extends Controller
 	}
 
 }
-
 
 
