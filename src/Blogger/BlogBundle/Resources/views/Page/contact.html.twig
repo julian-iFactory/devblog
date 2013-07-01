@@ -10,6 +10,12 @@
 
     <p>Want to contact symblog?</p>
 
+    {% for flashMessage in app.session.flashbag.get('blogger-notice') %}
+    <div class="blogger-notice">
+    {{ flashMessage }}
+    </div> 
+    {% endfor %}
+
     <form action="{{ path('BloggerBlogBundle_contact') }}" method="post" {{ form_enctype(form) }} class="blogger">
         {{ form_errors(form) }}
 
@@ -22,4 +28,5 @@
 
         <input type="submit" value="Submit" />
     </form>
-{% endblock %}
+    {% endblock %}
+    
