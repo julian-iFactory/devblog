@@ -97,49 +97,6 @@
         "homepage": "http://symfony.com"
     },
     {
-        "name": "doctrine/data-fixtures",
-        "version": "v1.0.0-ALPHA3",
-        "version_normalized": "1.0.0.0-alpha3",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/doctrine/data-fixtures.git",
-            "reference": "v1.0.0-ALPHA3"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://github.com/doctrine/data-fixtures/zipball/v1.0.0-ALPHA3",
-            "reference": "v1.0.0-ALPHA3",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.2"
-        },
-        "time": "2012-09-20 03:26:34",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Doctrine\\Common\\DataFixtures": "lib/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Jonathan Wage",
-                "email": "jonwage@gmail.com",
-                "homepage": "http://www.jwage.com/"
-            }
-        ],
-        "description": "Data Fixtures for all Doctrine Object Managers",
-        "homepage": "http://www.doctrine-project.org",
-        "keywords": [
-            "database"
-        ]
-    },
-    {
         "name": "doctrine/lexer",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -1591,31 +1548,95 @@
         ]
     },
     {
-        "name": "doctrine/doctrine-fixtures-bundle",
-        "version": "v1.0.0-beta1",
-        "version_normalized": "1.0.0.0-beta1",
-        "target-dir": "Doctrine/Bundle/DoctrineFixturesBundle",
+        "name": "doctrine/data-fixtures",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
-            "url": "https://github.com/doctrine/DoctrineFixturesBundle.git",
-            "reference": "v1.0.0-beta1"
+            "url": "https://github.com/doctrine/data-fixtures.git",
+            "reference": "6924952026b77ff492da559b04ad166d25c611cb"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/doctrine/DoctrineFixturesBundle/zipball/v1.0.0-beta1",
-            "reference": "v1.0.0-beta1",
+            "url": "https://api.github.com/repos/doctrine/data-fixtures/zipball/6924952026b77ff492da559b04ad166d25c611cb",
+            "reference": "6924952026b77ff492da559b04ad166d25c611cb",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.3.2",
-            "symfony/symfony": ">=2.0"
+            "doctrine/common": ">=2.2,<2.5-dev",
+            "php": ">=5.3.2"
         },
-        "time": "2011-12-17 11:07:21",
-        "type": "symfony-bundle",
-        "installation-source": "dist",
+        "require-dev": {
+            "doctrine/orm": ">=2.2,<2.5-dev"
+        },
+        "suggest": {
+            "doctrine/mongodb-odm": "For loading MongoDB ODM fixtures",
+            "doctrine/orm": "For loading ORM fixtures",
+            "doctrine/phpcr-odm": "For loading PHPCR ODM fixtures"
+        },
+        "time": "2013-04-11 23:14:04",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "source",
         "autoload": {
             "psr-0": {
-                "Doctrine\\Bundle\\DoctrineFixturesBundle": ""
+                "Doctrine\\Common\\DataFixtures": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jonathan Wage",
+                "email": "jonwage@gmail.com",
+                "homepage": "http://www.jwage.com/"
+            }
+        ],
+        "description": "Data Fixtures for all Doctrine Object Managers",
+        "homepage": "http://www.doctrine-project.org",
+        "keywords": [
+            "database"
+        ]
+    },
+    {
+        "name": "doctrine/doctrine-fixtures-bundle",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "target-dir": "Doctrine/Bundle/FixturesBundle",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/doctrine/DoctrineFixturesBundle.git",
+            "reference": "512fc0fa1d0ce7bdcc6a0a91812eb531f20e0828"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/doctrine/DoctrineFixturesBundle/zipball/512fc0fa1d0ce7bdcc6a0a91812eb531f20e0828",
+            "reference": "512fc0fa1d0ce7bdcc6a0a91812eb531f20e0828",
+            "shasum": ""
+        },
+        "require": {
+            "doctrine/data-fixtures": "*",
+            "doctrine/doctrine-bundle": "~1.0",
+            "php": ">=5.3.2",
+            "symfony/doctrine-bridge": ">=2.1.0,<2.4-dev"
+        },
+        "time": "2013-06-21 10:31:45",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.1.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Doctrine\\Bundle\\FixturesBundle": ""
             }
         },
         "notification-url": "https://packagist.org/downloads/",
