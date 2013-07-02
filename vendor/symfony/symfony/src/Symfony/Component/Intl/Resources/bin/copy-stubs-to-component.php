@@ -12,6 +12,12 @@
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Icu\IcuData;
 use Symfony\Component\Intl\Intl;
+use Symfony\Component\Intl\ResourceBundle\Transformer\BundleTransformer;
+use Symfony\Component\Intl\ResourceBundle\Transformer\Rule\CurrencyBundleTransformationRule;
+use Symfony\Component\Intl\ResourceBundle\Transformer\Rule\LanguageBundleTransformationRule;
+use Symfony\Component\Intl\ResourceBundle\Transformer\Rule\LocaleBundleTransformationRule;
+use Symfony\Component\Intl\ResourceBundle\Transformer\Rule\RegionBundleTransformationRule;
+use Symfony\Component\Intl\ResourceBundle\Transformer\StubbingContext;
 
 require_once __DIR__ . '/common.php';
 require_once __DIR__ . '/autoload.php';
@@ -59,5 +65,6 @@ $filesystem->remove($targetDir);
 echo "Copying files from $sourceDir to $targetDir...\n";
 
 $filesystem->mirror($sourceDir, $targetDir);
+
 
 echo "Done.\n";
