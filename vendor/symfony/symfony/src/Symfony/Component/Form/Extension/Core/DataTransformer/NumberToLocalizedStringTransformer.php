@@ -128,7 +128,7 @@ class NumberToLocalizedStringTransformer implements DataTransformerInterface
             throw new TransformationFailedException($formatter->getErrorMessage());
         }
 
-        if ($result >= PHP_INT_MAX || $result <= -PHP_INT_MAX) {
+        if ($result >= INF || $result <= -INF) {
             throw new TransformationFailedException('I don\'t have a clear idea what infinity looks like');
         }
 
