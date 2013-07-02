@@ -147,7 +147,10 @@ class Process
             $this->cwd = getcwd();
         }
         if (null !== $env) {
-            $this->setEnv($env);
+            $this->env = array();
+            foreach ($env as $key => $value) {
+                $this->env[(binary) $key] = (binary) $value;
+            }
         } else {
             $this->env = null;
         }
@@ -259,9 +262,9 @@ class Process
             stream_set_blocking($pipe, false);
         }
 
+
         if ($this->tty) {
             $this->status = self::STATUS_TERMINATED;
-
             return;
         }
 
@@ -286,17 +289,15 @@ class Process
             $w = $writePipes;
             $e = null;
 
-            if (false === $n = @stream_select($r, $w, $e, 0, ceil(static::TIMEOUT_PRECISION * 1E6))) {
-                // if a system call has been interrupted, forget about it, let's try again
-                if ($this->hasSystemCallBeenInterrupted()) {
-                    continue;
-                }
+            $n = @stream_select($r, $w, $e, 0, ceil(static::TIMEOUT_PRECISION * 1E6));
+
+            if (false === $n) {
                 break;
             }
+            if ($n === 0) {
+                proc_terminate($this->process);
 
-            // nothing has changed, let's wait until the process is ready
-            if (0 === $n) {
-                continue;
+                throw new RuntimeException('The process timed out.');
             }
 
             if ($w) {
@@ -386,9 +387,10 @@ class Process
 
                 // let's have a look if something changed in streams
                 if (false === $n = @stream_select($r, $w, $e, 0, ceil(static::TIMEOUT_PRECISION * 1E6))) {
-                    // if a system call has been interrupted, forget about it, let's try again
-                    // otherwise, an error occured, let's reset pipes
-                    if (!$this->hasSystemCallBeenInterrupted()) {
+                    $lastError = error_get_last();
+
+                    // stream_select returns false when the `select` system call is interrupted by an incoming signal
+                    if (isset($lastError['message']) && false === stripos($lastError['message'], 'interrupted system call')) {
                         $this->pipes = array();
                     }
 
@@ -940,25 +942,13 @@ class Process
     /**
      * Sets the environment variables.
      *
-     * An environment variable value should be a string.
-     * If it is an array, the variable is ignored.
-     *
-     * That happens in PHP when 'argv' is registered into
-     * the $_ENV array for instance.
-     *
      * @param array $env The new environment variables
      *
      * @return self The current Process instance
      */
     public function setEnv(array $env)
     {
-        // Process can not handle env values that are arrays
-        $env = array_filter($env, function ($value) { if (!is_array($value)) { return true; } });
-
-        $this->env = array();
-        foreach ($env as $key => $value) {
-            $this->env[(binary) $key] = (binary) $value;
-        }
+        $this->env = $env;
 
         return $this;
     }
@@ -1102,9 +1092,9 @@ class Process
             $this->readBytes = array(
                 self::STDOUT => 0,
             );
-
+            
             return array(array('pipe', 'r'), $this->fileHandles[self::STDOUT], array('pipe', 'w'));
-        }
+        } 
 
         if ($this->tty) {
             $descriptors = array(
@@ -1239,18 +1229,5 @@ class Process
                 unset($this->fileHandles[$type]);
             }
         }
-    }
-
-    /**
-     * Returns true if a system call has been interrupted.
-     *
-     * @return Boolean
-     */
-    private function hasSystemCallBeenInterrupted()
-    {
-        $lastError = error_get_last();
-
-        // stream_select returns false when the `select` system call is interrupted by an incoming signal
-        return isset($lastError['message']) && false !== stripos($lastError['message'], 'interrupted system call');
     }
 }

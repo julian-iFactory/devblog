@@ -18,6 +18,7 @@ use Symfony\Component\Console\Tests\Fixtures\DescriptorApplication1;
 use Symfony\Component\Console\Tests\Fixtures\DescriptorApplication2;
 use Symfony\Component\Console\Tests\Fixtures\DescriptorCommand1;
 use Symfony\Component\Console\Tests\Fixtures\DescriptorCommand2;
+use Symfony\Component\Finder\Shell\Command;
 
 /**
  * @author Jean-François Simon <contact@jfsimon.fr>
