@@ -9,7 +9,7 @@
  * @copyright  2013 Jeremy Dorn
  * @license    http://opensource.org/licenses/MIT
  * @link       http://github.com/jdorn/sql-formatter
- * @version    1.2.9
+ * @version    1.2.10
  */
 class SqlFormatter
 {
@@ -34,7 +34,7 @@ class SqlFormatter
     // Reserved words (for syntax highlighting)
     protected static $reserved = array(
         'ACCESSIBLE', 'ACTION', 'AGAINST', 'AGGREGATE', 'ALGORITHM', 'ALL', 'ALTER', 'ANALYSE', 'ANALYZE', 'AS', 'ASC',
-        'AUTOCOMMIT', 'AUTO_INCREMENT', 'BACKUP', 'BEGIN', 'BETWEEN', 'BINLOG', 'BOTH', 'CASCADE', 'CASE', 'CHANGE', 'CHANGED',
+        'AUTOCOMMIT', 'AUTO_INCREMENT', 'BACKUP', 'BEGIN', 'BETWEEN', 'BINLOG', 'BOTH', 'CASCADE', 'CASE', 'CHANGE', 'CHANGED', 'CHARACTER SET',
         'CHARSET', 'CHECK', 'CHECKSUM', 'COLLATE', 'COLLATION', 'COLUMN', 'COLUMNS', 'COMMENT', 'COMMIT', 'COMMITTED', 'COMPRESSED', 'CONCURRENT',
         'CONSTRAINT', 'CONTAINS', 'CONVERT', 'COUNT', 'CREATE', 'CROSS', 'CURRENT_TIMESTAMP', 'DATABASE', 'DATABASES', 'DAY', 'DAY_HOUR', 'DAY_MINUTE',
         'DAY_SECOND', 'DEFAULT', 'DEFINER', 'DELAYED', 'DELETE', 'DESC', 'DESCRIBE', 'DETERMINISTIC', 'DISTINCT', 'DISTINCTROW', 'DIV',
@@ -698,6 +698,48 @@ class SqlFormatter
         }
 
         return $result;
+    }
+
+    /**
+     * Compress a query by collapsing white space and removing comments
+     *
+     * @param String $string The SQL string
+     *
+     * @return String The SQL string without comments
+     */
+    public static function compress($string)
+    {
+        $result = '';
+
+        $tokens = self::tokenize($string);
+
+
+        $whitespace = true;
+        foreach ($tokens as $token) {
+            // Skip comment tokens
+            if ($token[self::TOKEN_TYPE] === self::TOKEN_TYPE_COMMENT || $token[self::TOKEN_TYPE] === self::TOKEN_TYPE_BLOCK_COMMENT) {
+                continue;
+            }
+            
+            if($token[self::TOKEN_TYPE] === self::TOKEN_TYPE_WHITESPACE) {
+                // If the last token was whitespace, don't add another one
+                if($whitespace) {
+                    continue;
+                }
+                else {
+                    $whitespace = true;
+                    // Convert all whitespace to a single space
+                    $token[self::TOKEN_VALUE] = ' ';
+                }
+            }
+            else {
+                $whitespace = false;
+            }
+
+            $result .= $token[self::TOKEN_VALUE];
+        }
+
+        return rtrim($result);
     }
 
     /**
