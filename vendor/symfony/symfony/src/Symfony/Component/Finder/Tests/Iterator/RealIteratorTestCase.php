@@ -88,6 +88,7 @@ abstract class RealIteratorTestCase extends IteratorTestCase
         }
 
         if (is_string($files)) {
+
             return self::$tmpDir.DIRECTORY_SEPARATOR.str_replace('/', DIRECTORY_SEPARATOR, $files);
         }
 

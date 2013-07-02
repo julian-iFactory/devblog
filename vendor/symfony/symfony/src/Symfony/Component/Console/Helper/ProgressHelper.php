@@ -186,8 +186,6 @@ class ProgressHelper extends Helper
         $this->current   = 0;
         $this->max       = (int) $max;
         $this->output    = $output;
-        $this->lastMessagesLength = 0;
-        $this->barCharOriginal = '';
 
         if (null === $this->format) {
             switch ($output->getVerbosity()) {
