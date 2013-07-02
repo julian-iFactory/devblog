@@ -56,7 +56,6 @@ class IbanValidator extends ConstraintValidator
 
         if ($rest != 1) {
             $this->context->addViolation($constraint->message, array('{{ value }}' => $value));
-
             return;
         }
     }
