@@ -149,6 +149,7 @@ class ResizeFormListener implements EventSubscriberInterface
         $event->setData($data);
     }
 
+
     /**
      * Alias of {@link preSubmit()}.
      *

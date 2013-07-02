@@ -11,6 +11,7 @@
 
 namespace Symfony\Component\Locale\Tests\Stub;
 
+use Symfony\Component\Intl\Util\IcuVersion;
 use Symfony\Component\Intl\Util\IntlTestHelper;
 use Symfony\Component\Locale\Stub\StubLocale;
 

@@ -45,6 +45,7 @@ class SubRequestController extends ContainerAware
 
         // The RouterListener is also tested as if it does not keep the right
         // Request in the context, a 301 would be generated
+
         return new Response($content);
     }
 

@@ -207,15 +207,7 @@ class NativeSessionStorage implements SessionStorageInterface
             $this->metadataBag->stampNew();
         }
 
-        $ret = session_regenerate_id($destroy);
-
-        // workaround for https://bugs.php.net/bug.php?id=61470 as suggested by David Grudl
-        session_write_close();
-        $backup = $_SESSION;
-        session_start();
-        $_SESSION = $backup;
-
-        return $ret;
+        return session_regenerate_id($destroy);
     }
 
     /**
