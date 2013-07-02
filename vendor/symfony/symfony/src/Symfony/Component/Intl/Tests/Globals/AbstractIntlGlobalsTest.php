@@ -11,6 +11,7 @@
 
 namespace Symfony\Component\Intl\Tests\Globals;
 
+
 /**
  * Test case for intl function implementations.
  *

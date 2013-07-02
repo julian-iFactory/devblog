@@ -17,7 +17,6 @@
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="BloggerBlogBundle">Blogger\BlogBundle\BloggerBlogBundle</parameter>
-      <parameter key="DoctrineFixturesBundle">Doctrine\Bundle\DoctrineFixturesBundle\DoctrineFixturesBundle</parameter>
       <parameter key="AcmeDemoBundle">Acme\DemoBundle\AcmeDemoBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -32,11 +31,14 @@
     <parameter key="database_user">root</parameter>
     <parameter key="database_password">root</parameter>
     <parameter key="mailer_transport">gmail</parameter>
+    <parameter key="mailer_encryption">ssl</parameter>
+    <parameter key="mailer_auth_mode">login</parameter>
     <parameter key="mailer_host">smtp.gmail.com</parameter>
     <parameter key="mailer_user">mpclarkson@gmail.com</parameter>
     <parameter key="mailer_password">Goldfishy76</parameter>
     <parameter key="locale">en</parameter>
     <parameter key="secret">2d34f785b4ea1ee63ca6442b3befd619</parameter>
+    <parameter key="database_path">null</parameter>
     <parameter key="blogger_blog.emails.contact_email">matt@pelotonhq.com</parameter>
     <parameter key="controller_resolver.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver</parameter>
     <parameter key="controller_name_converter.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser</parameter>

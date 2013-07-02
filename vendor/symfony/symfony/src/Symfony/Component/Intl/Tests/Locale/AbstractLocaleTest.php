@@ -11,6 +11,8 @@
 
 namespace Symfony\Component\Intl\Tests\Locale;
 
+use Symfony\Component\Intl\Stub\StubLocale;
+
 /**
  * Test case for Locale implementations.
  *
