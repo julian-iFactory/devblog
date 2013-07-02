@@ -53,6 +53,7 @@ class HelpCommandTest extends \PHPUnit_Framework_TestCase
         $this->assertRegExp('/list \[--xml\] \[--raw\] \[--format="\.\.\."\] \[namespace\]/', $commandTester->getDisplay(), '->execute() returns a text help for the given command');
     }
 
+
     public function testExecuteForApplicationCommandWithXmlOption()
     {
         $application = new Application();
