@@ -27,7 +27,6 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 class Application extends BaseApplication
 {
     private $kernel;
-    private $commandsRegistered = false;
 
     /**
      * Constructor.
@@ -66,11 +65,7 @@ class Application extends BaseApplication
      */
     public function doRun(InputInterface $input, OutputInterface $output)
     {
-        if (!$this->commandsRegistered) {
-            $this->registerCommands();
-
-            $this->commandsRegistered = true;
-        }
+        $this->registerCommands();
 
         $this->setDispatcher($this->kernel->getContainer()->get('event_dispatcher'));
 

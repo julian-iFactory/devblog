@@ -91,14 +91,12 @@ class SecurityRoutingIntegrationTest extends WebTestCase
         $this->assertRestricted($barredClient, '/secured-by-two-ips');
     }
 
-    private function assertAllowed($client, $path)
-    {
+    private function assertAllowed($client, $path) {
         $client->request('GET', $path);
         $this->assertEquals(404, $client->getResponse()->getStatusCode());
     }
 
-    private function assertRestricted($client, $path)
-    {
+    private function assertRestricted($client, $path) {
         $client->request('GET', $path);
         $this->assertEquals(302, $client->getResponse()->getStatusCode());
     }
