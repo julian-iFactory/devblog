@@ -88,7 +88,6 @@ class Container implements IntrospectableContainerInterface
         $this->parameterBag = null === $parameterBag ? new ParameterBag() : $parameterBag;
 
         $this->services       = array();
-        $this->aliases        = array();
         $this->scopes         = array();
         $this->scopeChildren  = array();
         $this->scopedServices = array();
@@ -229,10 +228,7 @@ class Container implements IntrospectableContainerInterface
     {
         $id = strtolower($id);
 
-        return array_key_exists($id, $this->services)
-            || array_key_exists($id, $this->aliases)
-            || method_exists($this, 'get'.strtr($id, array('_' => '', '.' => '_')).'Service')
-        ;
+        return array_key_exists($id, $this->services) || method_exists($this, 'get'.strtr($id, array('_' => '', '.' => '_')).'Service');
     }
 
     /**

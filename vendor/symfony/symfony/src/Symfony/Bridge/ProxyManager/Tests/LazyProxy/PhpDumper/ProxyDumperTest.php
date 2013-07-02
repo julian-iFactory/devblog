@@ -11,7 +11,9 @@
 
 namespace Symfony\Bridge\ProxyManager\LazyProxy\Tests\Instantiator;
 
+use ProxyManager\Configuration;
 use Symfony\Bridge\ProxyManager\LazyProxy\PhpDumper\ProxyDumper;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\Definition;
 
 /**
