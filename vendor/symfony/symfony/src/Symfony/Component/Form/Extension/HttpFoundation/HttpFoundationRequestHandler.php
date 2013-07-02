@@ -11,6 +11,7 @@
 
 namespace Symfony\Component\Form\Extension\HttpFoundation;
 
+use Symfony\Component\Form\Exception\InvalidArgumentException;
 use Symfony\Component\Form\Exception\UnexpectedTypeException;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\RequestHandlerInterface;

@@ -124,6 +124,7 @@ class MergeCollectionListener implements EventSubscriberInterface
         $event->setData($dataToMergeInto);
     }
 
+
     /**
      * Alias of {@link onSubmit()}.
      *
