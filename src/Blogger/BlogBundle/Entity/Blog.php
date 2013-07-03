@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * @ORM\Entity(repositoryClass="Blogger\BlogBundle\Entity\Repository\BlogRepository")
  * @ORM\Table(name="blog")
- * @ORM\HasLifecycleCallbacks()
+ * @ORM\HasLifecycleCallbacks
  */
 
 class Blog
@@ -66,6 +66,14 @@ class Blog
      *
      * @return integer 
      */
+
+    public function __construct()
+    {
+        $this->comments = new ArrayCollection();
+        $this->setCreated(new \DateTime());
+        $this->setUpdated(new \DateTime());
+    }
+
     public function getId()
     {
         return $this->id;
@@ -89,10 +97,18 @@ class Blog
      *
      * @return string 
      */
+
+
     public function getTitle()
     {
         return $this->title;
     }
+
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
+
 
     /**
      * Set author
@@ -233,12 +249,6 @@ class Blog
     public function getUpdated()
     {
         return $this->updated;
-    }
-    public function __construct()
-    {
-        $this->comments = new ArrayCollection();
-        $this->setCreated(new \DateTime());
-        $this->setUpdated(new \DateTime());
     }
 
     /**
