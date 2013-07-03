@@ -1,20 +1,20 @@
 <?php
 
-// ::base.html.twig
+// BloggerBlogBundle:Page:contactEmail.txt.twig
 return array (
-  '51c56cc' => 
+  'd8f44a4' => 
   array (
     0 => 
     array (
-      0 => 'css/*',
+      0 => '@BloggerBlogBundle/Resources/public/css/*',
     ),
     1 => 
     array (
     ),
     2 => 
     array (
-      'output' => '_controller/css/51c56cc.css',
-      'name' => '51c56cc',
+      'output' => '_controller/css/d8f44a4.css',
+      'name' => 'd8f44a4',
       'debug' => NULL,
       'combine' => NULL,
       'vars' => 

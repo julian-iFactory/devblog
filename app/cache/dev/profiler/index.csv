@@ -99,3 +99,12 @@ ad0119,127.0.0.1,GET,http://devblog/app_dev.php/_fragment?_path=_format%3Dhtml%2
 e1a5db,127.0.0.1,GET,http://devblog/app_dev.php/36/a-day-with-symfony2,1372827204,
 5427aa,127.0.0.1,GET,http://devblog/app_dev.php/_fragment?_path=blog_id%3D36%26_format%3Dhtml%26_controller%3DBloggerBlogBundle%253AComment%253Anew,1372827204,e1a5db
 853dab,127.0.0.1,GET,http://devblog/app_dev.php/_fragment?_path=_format%3Dhtml%26_controller%3DBloggerBlogBundle%253APage%253Asidebar,1372827204,e1a5db
+04d6cb,127.0.0.1,GET,http://devblog/app_dev.php/,1372827618,
+3ee4bc,127.0.0.1,GET,http://devblog/app_dev.php/_fragment?_path=_format%3Dhtml%26_controller%3DBloggerBlogBundle%253APage%253Asidebar,1372827618,04d6cb
+1dc5c1,127.0.0.1,GET,http://devblog/app_dev.php/,1372828046,
+63bc8d,127.0.0.1,GET,http://devblog/app_dev.php/_fragment?_path=_format%3Dhtml%26_controller%3DBloggerBlogBundle%253APage%253Asidebar,1372828046,1dc5c1
+eb52c5,127.0.0.1,GET,http://devblog/app_dev.php/,1372828321,
+cbfc16,127.0.0.1,GET,http://devblog/app_dev.php/_fragment?_path=_format%3Dhtml%26_controller%3DBloggerBlogBundle%253APage%253Asidebar,1372828321,eb52c5
+c73e87,127.0.0.1,GET,http://devblog/app_dev.php/36/a-day-with-symfony2,1372828454,
+9b68b5,127.0.0.1,GET,http://devblog/app_dev.php/_fragment?_path=blog_id%3D36%26_format%3Dhtml%26_controller%3DBloggerBlogBundle%253AComment%253Anew,1372828454,c73e87
+5058c8,127.0.0.1,GET,http://devblog/app_dev.php/_fragment?_path=_format%3Dhtml%26_controller%3DBloggerBlogBundle%253APage%253Asidebar,1372828454,c73e87

@@ -25,6 +25,43 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         $allow = array();
         $pathinfo = rawurldecode($pathinfo);
 
+        if (0 === strpos($pathinfo, '/css')) {
+            if (0 === strpos($pathinfo, '/css/d8f44a4')) {
+                // _assetic_d8f44a4
+                if ($pathinfo === '/css/d8f44a4.css') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'd8f44a4',  'pos' => NULL,  '_format' => 'css',  '_route' => '_assetic_d8f44a4',);
+                }
+
+                if (0 === strpos($pathinfo, '/css/d8f44a4_part_1_')) {
+                    // _assetic_d8f44a4_0
+                    if ($pathinfo === '/css/d8f44a4_part_1_blog_1.css') {
+                        return array (  '_controller' => 'assetic.controller:render',  'name' => 'd8f44a4',  'pos' => 0,  '_format' => 'css',  '_route' => '_assetic_d8f44a4_0',);
+                    }
+
+                    // _assetic_d8f44a4_1
+                    if ($pathinfo === '/css/d8f44a4_part_1_sidebar_2.css') {
+                        return array (  '_controller' => 'assetic.controller:render',  'name' => 'd8f44a4',  'pos' => 1,  '_format' => 'css',  '_route' => '_assetic_d8f44a4_1',);
+                    }
+
+                }
+
+            }
+
+            if (0 === strpos($pathinfo, '/css/51c56cc')) {
+                // _assetic_51c56cc
+                if ($pathinfo === '/css/51c56cc.css') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '51c56cc',  'pos' => NULL,  '_format' => 'css',  '_route' => '_assetic_51c56cc',);
+                }
+
+                // _assetic_51c56cc_0
+                if ($pathinfo === '/css/51c56cc_part_1_screen_1.css') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '51c56cc',  'pos' => 0,  '_format' => 'css',  '_route' => '_assetic_51c56cc_0',);
+                }
+
+            }
+
+        }
+
         if (0 === strpos($pathinfo, '/_')) {
             // _wdt
             if (0 === strpos($pathinfo, '/_wdt') && preg_match('#^/_wdt/(?P<token>[^/]++)$#s', $pathinfo, $matches)) {
