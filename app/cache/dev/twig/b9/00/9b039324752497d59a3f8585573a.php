@@ -50,7 +50,7 @@ class __TwigTemplate_b9009b039324752497d59a3f8585573a extends Twig_Template
             echo "</span> commented <time datetime=\"";
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["comment"]) ? $context["comment"] : $this->getContext($context, "comment")), "created"), "c"), "html", null, true);
             echo "\">";
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["comment"]) ? $context["comment"] : $this->getContext($context, "comment")), "created"), "l, F j, Y"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('blogger_blog_extension')->createdAgo($this->getAttribute((isset($context["comment"]) ? $context["comment"] : $this->getContext($context, "comment")), "created")), "html", null, true);
             echo "</time></p>
         </header>
         <p>";
@@ -91,6 +91,6 @@ class __TwigTemplate_b9009b039324752497d59a3f8585573a extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  74 => 11,  58 => 8,  49 => 6,  41 => 4,  23 => 3,  19 => 1,);
+        return array (  58 => 8,  49 => 6,  41 => 4,  23 => 3,  19 => 1,  76 => 23,  74 => 11,  71 => 21,  69 => 20,  60 => 14,  53 => 12,  48 => 10,  42 => 9,  38 => 7,  35 => 6,  29 => 4,);
     }
 }

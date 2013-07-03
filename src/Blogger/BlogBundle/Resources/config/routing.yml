@@ -27,7 +27,7 @@ BloggerBlogBundle_contact:
 
 #Show Blog Pages
 BloggerBlogBundle_blog_show:
-    pattern:  /{id}
+    pattern:  /{id}/{slug}
     defaults: { _controller: BloggerBlogBundle:Blog:show }
     requirements:
         _method:  GET
